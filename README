@@ -1,0 +1,177 @@
+Thickbox for Infinitas
+================================================================================
+
+Drop this into the plugins dir (installer is on the way) and give your links the
+class of "thickbox" and the rest is magic. Css and Js are automaticaly injected
+into the layout using the onRequireJs / onRequireCss Events. By default it will
+automaticaly be a vailable on any page in the frontend of your site (not admi).
+
+You may adjust the private method __needAssets() if you need to change where
+thickbox is available. eg  if you want it all over admin / fronend just return
+true, if you just want it for a certain controller/action pair something like
+return $data['controller'] == 'my_controller' && $data['action'] == 'my_action';
+
+there are the following options:
+Size:
+	add '?height=300&width=300' to your url to set a size of 300x300
+	if you dont add sizes it will default to 630x440
+	string form:
+		$this->Html->link('my link', '/my_controller/my_action/?height=300&width=300')
+
+	array form:
+		array(
+			'controller' => 'my_controller',
+			'action' => 'my_action',
+			'?height=300&width=300'
+		)
+Iframe:
+	add 'TB_iframe=true' to open the content in an iframe
+
+Modal box:
+	add 'modal=true' to the url so that only clicking close will close the popup
+
+Inline content:
+	add 'inlineId=xyz' where xyz is the id of the content you want displayed.
+
+Gallery mode:
+	use rel to group images together. images with the same 'rel' attribute will
+	display in the gallery together.
+
+Features
+================================================================================
+ThickBox was built using the super lightweight jQuery library. Compressed, the
+	jQuery library is 20k, uncompressed it's 58k.
+
+The ThickBox JavaScript code and CSS file only add an additional 15k (only 10k
+	by using the thickbox-compressed.js) on top of the jQuery code. The CSS file
+	could additionally be compressed if need be.
+
+ThickBox will resize images that are bigger than the browser window.
+
+ThickBox offers versatility (images, iframed content, inline content, and AJAX
+	content).
+
+ThickBox will hide form elements in Windows IE 6.
+
+ThickBox will remain centered in the window even when the user scrolls the page
+	or changes the size of the browser window. Clicking an image, the overlay,
+	or close link will remove ThickBox.
+
+Due to the ThickBox creator's view that transitions should be tailored by
+	individual authors, ThickBox windows do not implement fancy transitions.
+	Feel free to add them as you see fit. Is this a feature? Well, some might
+	say it is.
+
+ThickBox can be invoked from a link element, input element (typically a button),
+	and the area element (image maps).
+
+
+Usage
+================================================================================
+Single image:
+	to use for a single image do something like this.
+	$this->Html->link(
+		$this->Html->image('my_image.png'),
+		'/img/my_image.png',
+		array(
+			'class' => 'thickbox'
+		)
+	);
+
+Gallery:
+	sets of images with next / prev buttons
+
+	$this->Html->link(
+		$this->Html->image('my_image1.png'),
+		'/img/my_image1.png',
+		array(
+			'class' => 'thickbox',
+			'rel' => 'my-gallery-1'
+		)
+	);
+	$this->Html->link(
+		$this->Html->image('my_image2.png'),
+		'/img/my_image2.png',
+		array(
+			'class' => 'thickbox',
+			'rel' => 'my-gallery-1'
+		)
+	);
+	$this->Html->link(
+		$this->Html->image('my_image3.png'),
+		'/img/my_image3.png',
+		array(
+			'class' => 'thickbox',
+			'rel' => 'my-gallery-2'
+		)
+	);
+	$this->Html->link(
+		$this->Html->image('my_image4.png'),
+		'/img/my_image4.png',
+		array(
+			'class' => 'thickbox',
+			'rel' => 'my-gallery-2'
+		)
+	);
+NOTE:
+You can also use the keyboard to move through the gallery, and the images will be
+displayed in the same order they are in in the html
+
+
+Inline content:
+	$this->Html->link(
+		'cool link',
+		'#TB_inline?height=300&width=300&inlineId=myContent',
+		array(
+			'class' => 'thickbox'
+		)
+	);
+
+	where you would have something like the following in your page.
+	<div id="myContent">...blaa blaa...</div>
+
+NOTE:
+If the inline content in the ThickBox contains more content than the ThickBox
+dimensions will show, a vertical scroll bar will appear so that the content can
+be scrolled. You can avoid having the scroll by making sure the ThickBox has the
+appropriate dimensions in order to show all of the inline content without having
+to scroll. In other words, if you don't want scroll bars, increase the height
+and width of the ThickBox until the content does not require scrolling.
+
+Iframe content:
+	$this->Html->link(
+		'google',
+		'http://google.co.uk/?q=some+search&TB_iframe=true&height=400&width=600',
+		array(
+			'class' => 'thickbox'
+		)
+	);
+NOTE:
+Add all other query parameters before the TB_iframe parameters. Everything after
+the "TB" is removed from the URL.
+
+Ajax content:
+	$this->Html->link(
+		'some ajax',
+		array(
+			'controller' => 'my_controller',
+			'action' => 'my_action',
+			123 // passed params
+		)
+		array(
+			'class' => 'thickbox'
+		)
+	);
+
+This help was taken from http://jquery.com/demo/thickbox/ and covers most of
+the usage, just wanted it up here as the site says its not being worked on any
+more so never know if it is going to be taken down.
+
+
+The ThickBox licence:
+/*
+ * Thickbox 3 - One Box To Rule Them All.
+ * By Cody Lindley (http://www.codylindley.com)
+ * Copyright (c) 2007 cody lindley
+ * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+*/
