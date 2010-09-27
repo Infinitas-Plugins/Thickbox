@@ -4,7 +4,7 @@ Thickbox for Infinitas
 Drop this into the plugins dir (installer is on the way) and give your links the
 class of "thickbox" and the rest is magic. Css and Js are automaticaly injected
 into the layout using the onRequireJs / onRequireCss Events. By default it will
-automaticaly be a vailable on any page in the frontend of your site (not admi).
+automaticaly be a vailable on any page in the frontend of your site.
 
 You may adjust the private method __needAssets() if you need to change where
 thickbox is available. eg  if you want it all over admin / fronend just return
