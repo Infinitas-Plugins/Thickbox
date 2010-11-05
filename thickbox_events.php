@@ -58,6 +58,6 @@
 		 * @return bool true if assets are neede, false if not
 		 */
 		private function __needAssets($data) {
-			return !isset($data['prefix'])  || $data['prefix'] != 'admin';
+			return true; //!isset($data['prefix'])  || $data['prefix'] != 'admin';
 		}
 	}
