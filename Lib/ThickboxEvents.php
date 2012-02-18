@@ -33,7 +33,7 @@
 				return false;
 			}
 
-			return array('/thickbox/js/thickbox');
+			return array('Thickbox.thickbox');
 		}
 
 		/**
@@ -48,7 +48,9 @@
 				return false;
 			}
 
-			return '/thickbox/css/thickbox';
+			return array(
+				'Thickbox.thickbox'
+			);
 		}
 
 		/**
