@@ -1,6 +1,6 @@
 <?php
 $map = array(
 	1 => array(
-		'000001_thickbox' => 'R4cdc22bda7c0495090e1247a6318cd70'),
+		'000009_Thickbox' => 'R4f563981f310475cb82f4d916318cd70'),
 );
 ?>
